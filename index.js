@@ -16,6 +16,14 @@ app.post('/newItem', (req, res) => {
   res.send(`A post request with /newItem on port ${PORT}`);
 });
 
+app.get('/item/:id', (req, res) => {
+  console.log(req.params.id);
+  let user = Number(req.params.id);
+  console.log(user);
+  console.log(data[user]);
+  res.send(data[user]);
+});
+
 app.put('/item', (req, res) => {
   res.send(`A put request with /item route on port ${PORT}`);
 });
