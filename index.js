@@ -6,7 +6,9 @@ const PORT = 3000;
 
 // This is for the public folder on path /
 app.use(express.static('public'));
-
+//method to use json
+//app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // this is for images folder on path images
 app.use('/images', express.static('images'));
 
@@ -14,6 +16,11 @@ app.get('/', (req, res) =>
   // get data first
   res.json(data)
 );
+
+app.post('/newItem', (req, res) => {
+  console.log(req.body);
+  res.send(req.body);
+});
 
 app.get(
   '/item/:id',
